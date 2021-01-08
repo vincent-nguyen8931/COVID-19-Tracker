@@ -18,16 +18,24 @@ $.ajax({
 // on click
 // this.val(items[i])
 
-QueryURL2 = "https://maps.googleapis.com/maps/api/directions/json?origin=Lafayette&destination=NewOrleans&units=imperial&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
 
-// $.ajax({
-//   url: QueryURL2,
-//   method: "GET",
-//   datatype : "jsonp"
-// }).then(function (currentDay) {
+// QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/jsonp?origin=Lafayette&units=imperial&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
+
+
+// places google
+// QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
+
+// covid data by country/state
+QueryURL2 = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/"
+
+$.ajax({
+  url: QueryURL2,
+  method: "GET"
+  // datatype : "jsonp"
+}).then(function (currentDay) {
   
-//   console.log(currentDay);
-// });
+  console.log(currentDay);
+});
 let map;
 
 function initMap() {
