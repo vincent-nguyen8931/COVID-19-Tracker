@@ -10,12 +10,21 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 	<link rel="stylesheet" href="assets/style.css">
 
+	<!-- Google maps api -->
+	<script defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI&libraries=places&callback=initMap">
+		</script>
+
+	<!-- AJAX CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Jquery CDN -->
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+		crossorigin="anonymous"></script>
+
 	<title>COVID-19 Tracker</title>
-
 </head>
-
 <body>
-
 
 	<!-- Navbar-->
 	<nav class="navbar has-background-danger" role="navigation" aria-label="main navigation">
@@ -132,6 +141,7 @@
 
 		<!-- Map tile -->
 		<div class="tile is-parent is-vertical">
+
 			<article class="container tile is-child notification is-primary">
 				<!-- <h1 class="title">Map</h1>
 				<h2 class="subtitle">With an image</h2> -->
