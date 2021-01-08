@@ -18,13 +18,14 @@ $.ajax({
 // on click
 // this.val(items[i])
 
-QueryURL2 = "http://maps.googleapis.com/maps/api/directions/json?origin=Lafayette&destination=NewOrleans&units=imperial&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
+QueryURL2 = "https://maps.googleapis.com/maps/api/directions/json?origin=Lafayette&destination=NewOrleans&units=imperial&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
 
 $.ajax({
   url: QueryURL2,
   method: "GET",
-  cors: true
+  datatype : "jsonp"
 }).then(function (currentDay) {
+  
   console.log(currentDay);
 });
 
@@ -36,3 +37,6 @@ $.ajax({
 }).then(function (currentDay) {
   console.log(currentDay);
 });
+
+// button here
+// $("#Identifer").("<button>").text("something");
