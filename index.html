@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 	<meta charset="UTF-8">
@@ -23,7 +24,6 @@
 
 	<title>COVID-19 Tracker</title>
 </head>
-
 <body>
 
 	<!-- Navbar-->
@@ -36,38 +36,43 @@
 				<h1 class="is-size-2">COVID-19 Tracker</h1>
 			</div>
 
-			<!-- <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a> -->
+			<!-- Navbar Burger Icon -->
+			<a role="button" class="navbar-burger nav-toggle" id="nav-toggle" aria-label="menu" aria-expanded="false"
+				data-target="navbarBasicExample">
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+			</a>
+
 		</div>
 
 		<!-- Navbar Menu -->
-		<div id="navbarBasicExample" class="navbar-menu">
+		<div id="navbarBasicExample" class="navbar-menu" id="nav-menu">
 			<div class="navbar-start">
 				<a class="navbar-item">Home</a>
 				<a class="navbar-item">Documentation</a>
 				<a class="navbar-item">About</a>
 			</div>
+		</div>
 
-			<!-- Search in Navbar -->
-			<div class="navbar-end">
-				<div class="navbar-item">
-					<div class="level-item">
-						<div class="field has-addons">
-							<p class="control">
-								<input class="input is-rounded" type="text" placeholder="Search city name">
-							</p>
-							<p class="control">
-								<button class="button is-primary is-rounded">
-									<i class="fas fa-search"></i>
-								</button>
-							</p>
-						</div>
+		<!-- Search in Navbar -->
+		<!-- <div class="navbar-end">
+			<div class="navbar-item">
+				<div class="level-item">
+					<div class="field has-addons">
+						<p class="control">
+							<input class="input is-rounded" type="text" placeholder="Search city name">
+						</p>
+						<p class="control">
+							<button class="button is-primary is-rounded">
+								<i class="fas fa-search"></i>
+							</button>
+						</p>
 					</div>
 				</div>
 			</div>
+		</div> -->
+
 		</div>
 	</nav>
 
@@ -76,7 +81,7 @@
 	<div class="level-left m-3">
 		<div class="field has-addons">
 			<p class="control">
-				<input class="input is-rounded" type="text" placeholder="Search city name">
+				<input class="input is-rounded" id="search-term" type="text" placeholder="Search city name">
 			</p>
 			<p class="control">
 				<button class="button is-primary is-rounded">
@@ -84,6 +89,11 @@
 				</button>
 			</p>
 		</div>
+		<h1>
+			<!-- <strong><- Input your address here!</strong> -->
+			<strong>Covid Information Mega Ultra Search Tool</strong>
+			<!-- <strong><- Input your address here!</strong> -->
+		</h1>
 	</div>
 
 	<!-- <div class="field">
@@ -103,8 +113,9 @@
 	<div class="tile">
 
 		<div class="tile is-parent is-vertical is-4">
+
 			<!-- Search in tile -->
-			<article class="container tile is-child notification is-light">
+			<!-- <article class="container tile is-child notification is-light">
 				<div class="field has-addons">
 					<p class="control">
 						<input class="input is-rounded" type="text" placeholder="Search city name">
@@ -115,21 +126,27 @@
 						</button>
 					</p>
 				</div>
-			</article>
+			</article> -->
+
 			<!-- City Info tile -->
-			<article class="container tile is-child notification is-primary">
-				<h1 class="title">City Info</h1>
+			<article class="container tile is-child notification is-info">
+				<h1 class="title">Covid Info</h1>
 				<h2 class="subtitle">Search city name here</h2>
+				<div class="city-info">
+
+				</div>
 			</article>
+
 		</div>
+
 		<!-- Map tile -->
 		<div class="tile is-parent is-vertical">
-			<article class="container tile is-child notification is-danger">
-				<h1 class="title">Map</h1>
-				<h2 class="subtitle">With an image</h2>
-				<div id="map"></div>
-				<!-- <figure class="image is-4by3"> -->
-				<img src="https://bulma.io/images/placeholders/640x480.png">
+
+			<article class="container tile is-child notification is-primary">
+				<!-- <h1 class="title">Map</h1>
+				<h2 class="subtitle">With an image</h2> -->
+				<figure class="image is-4by3">
+					<img src="https://bulma.io/images/placeholders/640x480.png">
 				</figure>
 			</article>
 		</div>
@@ -178,16 +195,16 @@
 	<!-- Bottom tile -->
 	<div class="tile is-parent is-vertical is-12">
 
-		<article class="tile is-child notification is-success">
+		<article class="tile is-child notification is-warning">
 			<div class="content">
-				<p class="title">Bottom tile</p>
+				<p class="title">City info</p>
 				<p class="subtitle">With even more content</p>
 				<div class="content"></div>
 			</div>
 		</article>
 
 	</div>
-	</div>
+
 
 	<div class="modal">
 		<div class="modal-background"></div>
@@ -201,16 +218,29 @@
 
 
 	<!-- Footer -->
-	<footer class="footer is-flex-grow-0">
+
+	<div class="tile is-parent is-vertical is-12">
+
+		<article class="tile is-child notification">
+			<div class="content">
+				<p class="subtitle"><strong>COVID-19 Tracker</strong> by Abuye Mamuye, Austin Woo, Muhammad A Khalid, Vincent Nguyen. The
+					source code is licensed
+					<a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+				</p>
+			</div>
+		</article>
+
+	</div>
+
+	<!-- <footer class="footer is-flex-grow-0 ">
 		<div class="content has-text-centered">
 			<p>
 				<strong>COVID-19 Tracker</strong> by Abuye Mamuye, Austin Woo, Muhammad A Khalid, Vincent Nguyen. The
 				source code is licensed
-				<a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-				is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+				<a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
 			</p>
 		</div>
-	</footer>
+	</footer> -->
 
 	<!--Add libraries here-->
 	<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
