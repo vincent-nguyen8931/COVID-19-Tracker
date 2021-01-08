@@ -1,11 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<!-- Add non-bootstrap css framework -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+	<link rel="stylesheet" href="assets/style.css">
+
+	<!-- Google maps api -->
+	<script defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI&libraries=places&callback=initMap">
+		</script>
+
+	<!-- AJAX CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Jquery CDN -->
+	<script src="https://code.jquery.com/jquery-3.5.1.js"
+		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<title>Documentation</title>
 </head>
+
 <body>
-	
+	<!-- Navbar-->
+	<nav class="navbar has-background-danger" role="navigation" aria-label="main navigation">
+		<div class="navbar-brand">
+			<div class="navbar-item is-size-1">
+				<span class="icon mr-5">
+					<i class="fas fa-home"></i>
+				</span>
+				<h1 class="is-size-2">COVID-19 Tracker</h1>
+			</div>
+
+			<!-- Navbar Burger Icon -->
+			<a role="button" class="navbar-burger nav-toggle" id="nav-toggle" aria-label="menu" aria-expanded="false"
+				data-target="navbarBasicExample">
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+			</a>
+
+		</div>
+
+		<!-- Navbar Menu -->
+		<div id="navbarBasicExample" class="navbar-menu" id="nav-menu">
+			<div class="navbar-start">
+				<a class="navbar-item" href="index.html">Home</a>
+				<a class="navbar-item" href="docs.html">Documentation</a>
+				<a class="navbar-item" href="about.html">About</a>
+			</div>
+		</div>
+
+		<!-- Search in Navbar -->
+		<!-- <div class="navbar-end">
+			<div class="navbar-item">
+				<div class="level-item">
+					<div class="field has-addons">
+						<p class="control">
+							<input class="input is-rounded" type="text" placeholder="Search city name">
+						</p>
+						<p class="control">
+							<button class="button is-primary is-rounded">
+								<i class="fas fa-search"></i>
+							</button>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div> -->
+
+		</div>
+	</nav>
+
+	<!-- Footer -->
+
+	<div class="tile is-parent is-vertical is-12">
+
+		<article class="tile is-child notification">
+			<div class="content">
+				<p class="subtitle"><strong>COVID-19 Tracker</strong> by Abuye Mamuye, Austin Woo, Muhammad A Khalid,
+					Vincent Nguyen. The
+					source code is licensed
+					<a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+				</p>
+			</div>
+		</article>
+
+	</div>
+
+
+	<!--Add libraries here-->
+	<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+	<script src="assets/script.js"></script>
 </body>
+
 </html>
