@@ -18,15 +18,26 @@ $.ajax({
 // on click
 // this.val(items[i])
 
-QueryURL2 = "http://maps.googleapis.com/maps/api/directions/json?origin=Lafayette&destination=NewOrleans&units=imperial&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
+QueryURL2 = "https://maps.googleapis.com/maps/api/directions/json?origin=Lafayette&destination=NewOrleans&units=imperial&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
 
-$.ajax({
-  url: QueryURL2,
-  method: "GET",
-  cors: true
-}).then(function (currentDay) {
-  console.log(currentDay);
+// $.ajax({
+//   url: QueryURL2,
+//   method: "GET",
+//   datatype : "jsonp"
+// }).then(function (currentDay) {
+  
+//   console.log(currentDay);
+// });
+let map;
+
+function initMap() {
+map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: -34.397, lng: 150.644},
+  zoom: 8
 });
+}
+
+initMap();
 
 Queryurl3 = "https://api.smartable.ai/coronavirus/news/:CA"
 
@@ -36,3 +47,6 @@ $.ajax({
 }).then(function (currentDay) {
   console.log(currentDay);
 });
+
+// button here
+// $("#Identifer").("<button>").text("something");
