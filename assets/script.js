@@ -1,31 +1,53 @@
+// Only loads map on the index.html page. Used to keep hamburger menu working on about and doc html page.
 $(document).ready(function () {
-  // geolocte api 
-  //  grab location
-  // grab covid guidelines of the state
-  // testing locations
-  // choosing testing locatioin
-  // be provided directions for testing location
-  // QueryURL = "https://discover.search.hereapi.com/v1/discover?apikey=cm9nka7Eq7NC7YfrsKwehxVumUyYYWiARjJBuXRa484&q=Covid&at=30.22,-92.02&limit=3"
+  if (window.location.pathname == "/index.html") {
+let map;
 
-  // $.ajax({
-  //   url: QueryURL,
-  //   method: "GET"
-  // }).then(function (currentDay) {
-  //   console.log(currentDay);
-  // });
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: 41.5, lng: -100 },
+      zoom: 4
+    
+    });
+  }
+  initMap();
+  }
+});
 
-  // // on click
-  // // this.val(items[i])
+  
+
+
+$(document).ready(function () {
+  // Prospective steps
+  // 1. find the user's city
+  // 2. Display the testing sites on the map (no progress on this yet)
+  // 3. grab covid states of the state
+  // 4. choosing testing locatioin
+  // 5. be provided directions for testing location
+  QueryURL = "https://discover.search.hereapi.com/v1/discover?apikey=cm9nka7Eq7NC7YfrsKwehxVumUyYYWiARjJBuXRa484&q=Covid&at=30.22,-92.02&limit=3"
+
+  $.ajax({
+    url: QueryURL,
+    method: "GET"
+  }).then(function (currentDay) {
+    console.log(currentDay);
+  });
 
 
   // // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/jsonp?origin=Lafayette&units=imperial&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
 
+// var searchTerm = $("#search-term").val();
+//   // places google. api key invalid error. 
+// QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + searchTerm + "&inputtype=textquery&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI" ;
 
-  // // places google
-  // // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
+// test text for google place
+// https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Walmart&inputtype=textquery&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI%22
 
-  // // covid data by country/state
-  // QueryURL2 = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=60cc0bce2emsh9ba3c88eb3c4d5dp125545jsnc79365a8f484"
+  // autocomplete places. needs more testing
+  // var searchTerm = $("#search-term").val();
+  // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?" + searchTerm + "key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
+
+
 
   // $.ajax({
   //   url: QueryURL2,
@@ -34,19 +56,10 @@ $(document).ready(function () {
 
   //   console.log(currentDay);
   // });
-  let map;
-
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: { lat: 41.5, lng: -100 },
-      zoom: 4
-    });
-  }
-
-  initMap();
 
 
 
+  // covid data by country/state
   var provinceOrState = $("<div>")
   var totalConfirmedCases = $("<div>")
   var totalDeaths = $("<div>")
@@ -54,27 +67,20 @@ $(document).ready(function () {
 
   $("#search-button").click(function () {
     // event.preventDefault()
-    Queryurl3 = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=60cc0bce2emsh9ba3c88eb3c4d5dp125545jsnc79365a8f484" ;
-    // console.log(Queryurl3);
+    covidStats = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=60cc0bce2emsh9ba3c88eb3c4d5dp125545jsnc79365a8f484";
 
-    // var cityName;
-    // var searchTerm = $("#search-term").val()
-    // cityName = searchTerm
     $.ajax({
-      url: Queryurl3,
+      url: covidStats,
       method: "GET"
     }).then(function (covidInfo) {
-      // console.log(covidInfo);
-
-      // *needs fixing* //
-      // button here
+console.log(covidInfo)
       var covidInfoBox = $("#covid-info");
       var searchTerm = $("#search-term").val();
       var arrayLength = covidInfo.stats.breakdowns.length;
 
+// solve the double click issue with this click
       $("#search-button").click(function () {
         for (i = 0; i < arrayLength; i++) {
-          // console.log(covidInfo.stats.breakdowns[0].location.provinceOrState);
           var state = covidInfo.stats.breakdowns[i].location.provinceOrState
           if (searchTerm === state) {
 
@@ -91,19 +97,22 @@ $(document).ready(function () {
   })
 
   // hamburger menu toggle variables
-var navbarToggle = $("#nav-toggle")
-var toggle = 0;
+  var navbarToggle = $("#nav-toggle");
+  var navMenu = $("#navbarBasicExample");
+  var toggle = 0;
   // hamburger menu toggle
-  $("#nav-toggle").click(function() {
+  $("#nav-toggle").click(function () {
     if (toggle === 0) {
-    navbarToggle.attr("class", ".is-active");
-    toggle++;
+      navbarToggle.attr("class", "navbar-burger nav-toggle is-active");
+      navMenu.attr("class", "navbar-menu is-active");
+      toggle++;
     }
     else {
-      navbarToggle.removeAttr("class", ".is-active");
+      navbarToggle.attr("class", "navbar-burger nav-toggle");
+      navMenu.attr("class", "navbar-menu");
       toggle--;
     }
-    
-  })
 
+  })
+  
 }) // document ready closing brackets
