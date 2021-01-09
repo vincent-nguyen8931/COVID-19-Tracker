@@ -1,15 +1,15 @@
 // Only loads map on the index.html page. Used to keep hamburger menu working on about and doc html page.
 $(document).ready(function () {
   if (window.location.pathname == "/index.html") {
-let map;
+    let map;
 
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: { lat: 41.5, lng: -100 },
-      zoom: 4
-    });
-  }
-  initMap();
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 41.5, lng: -100 },
+        zoom: 4
+      });
+    }
+    initMap();
   }
 });
 
@@ -32,12 +32,12 @@ $(document).ready(function () {
 
   // // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/jsonp?origin=Lafayette&units=imperial&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
 
-// var searchTerm = $("#search-term").val();
-//   // places google. api key invalid error. 
-// QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + searchTerm + "&inputtype=textquery&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI" ;
+  // var searchTerm = $("#search-term").val();
+  //   // places google. api key invalid error. 
+  // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + searchTerm + "&inputtype=textquery&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI" ;
 
-// test text for google place
-// https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Walmart&inputtype=textquery&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI%22
+  // test text for google place
+  // https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Walmart&inputtype=textquery&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI%22
 
   // autocomplete places. needs more testing
   // var searchTerm = $("#search-term").val();
@@ -53,7 +53,7 @@ $(document).ready(function () {
   //   console.log(currentDay);
   // });
 
-// var clickCount =0 ;
+  // var clickCount =0 ;
 
   // covid data by country/state
   var provinceOrState = $("<div>")
@@ -68,26 +68,26 @@ $(document).ready(function () {
       url: covidStats,
       method: "GET"
     }).then(function (covidInfo) {
-// console.log(covidInfo)
+      // console.log(covidInfo)
       var covidInfoBox = $("#covid-info");
       var searchTerm = $("#search-term").val();
       var arrayLength = covidInfo.stats.breakdowns.length;
 
-// solve the double click issue with this click
-        // clickCount++
-        // console.log(clickCount)
-        for (i = 0; i < arrayLength-1; i++) {
-          var state = covidInfo.stats.breakdowns[i].location.provinceOrState
-          if (searchTerm === state) {
+      // solve the double click issue with this click
+      // clickCount++
+      // console.log(clickCount)
+      for (i = 0; i < arrayLength - 1; i++) {
+        var state = covidInfo.stats.breakdowns[i].location.provinceOrState
+        if (searchTerm === state) {
 
-            provinceOrState.text("State: " + covidInfo.stats.breakdowns[i].location.provinceOrState);
-            totalConfirmedCases.text("Confirmed cases: " + covidInfo.stats.breakdowns[i].totalConfirmedCases);
-            totalDeaths.text("Total deaths: " + covidInfo.stats.breakdowns[i].totalDeaths);
-            totalRecoveredCases.text("Total recovered cases: " + covidInfo.stats.breakdowns[i].totalRecoveredCases);
+          provinceOrState.text("State: " + covidInfo.stats.breakdowns[i].location.provinceOrState);
+          totalConfirmedCases.text("Confirmed cases: " + covidInfo.stats.breakdowns[i].totalConfirmedCases);
+          totalDeaths.text("Total deaths: " + covidInfo.stats.breakdowns[i].totalDeaths);
+          totalRecoveredCases.text("Total recovered cases: " + covidInfo.stats.breakdowns[i].totalRecoveredCases);
 
-            covidInfoBox.append(provinceOrState, totalConfirmedCases, totalDeaths, totalRecoveredCases);
-          }
+          covidInfoBox.append(provinceOrState, totalConfirmedCases, totalDeaths, totalRecoveredCases);
         }
+      }
     })
   })
 
@@ -109,5 +109,5 @@ $(document).ready(function () {
     }
 
   })
-  
+
 }) // document ready closing brackets
