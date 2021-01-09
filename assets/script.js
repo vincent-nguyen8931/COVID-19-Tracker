@@ -64,12 +64,12 @@ $(document).ready(function () {
       url: Queryurl3,
       method: "GET"
     }).then(function (covidInfo) {
-      console.log(covidInfo);
+      // console.log(covidInfo);
 
       // *needs fixing* //
       // button here
       var covidInfoBox = $("#covid-info");
-      var searchTerm = $("#findState").val();
+      var searchTerm = $("#search-term").val();
       var arrayLength = covidInfo.stats.breakdowns.length;
 
       $("#search-button").click(function () {
