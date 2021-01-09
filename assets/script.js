@@ -1,7 +1,4 @@
 $(document).ready(function () {
-
-
-
   // geolocte api 
   //  grab location
   // grab covid guidelines of the state
@@ -55,9 +52,9 @@ $(document).ready(function () {
   var totalDeaths = $("<div>")
   var totalRecoveredCases = $("<div>")
 
-  $("#search-button").click(function (event) {
-    event.preventDefault()
-    Queryurl3 = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=60cc0bce2emsh9ba3c88eb3c4d5dp125545jsnc79365a8f484"
+  $("#search-button").click(function () {
+    // event.preventDefault()
+    Queryurl3 = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=60cc0bce2emsh9ba3c88eb3c4d5dp125545jsnc79365a8f484" ;
     // console.log(Queryurl3);
 
     // var cityName;
@@ -71,30 +68,24 @@ $(document).ready(function () {
 
       // *needs fixing* //
       // button here
-      var covidInfoBox = $("#covid-info")
+      var covidInfoBox = $("#covid-info");
+      var searchTerm = $("#findState").val();
+      var arrayLength = covidInfo.stats.breakdowns.length;
+
       $("#search-button").click(function () {
-
-        var searchTerm = $("#findState").val()
-        console.log(typeof searchTerm)
-
-        var arrayLength = covidInfo.stats.breakdowns.length
-
-        for (i = 0; i < 62; i++) {
-          console.log(searchTerm);
+        for (i = 0; i < arrayLength; i++) {
           // console.log(covidInfo.stats.breakdowns[0].location.provinceOrState);
           var state = covidInfo.stats.breakdowns[i].location.provinceOrState
           if (searchTerm === state) {
 
-            provinceOrState.text(covidInfo.stats.breakdowns[i].location.provinceOrState);
-            totalConfirmedCases.text(covidInfo.stats.breakdowns[i].totalConfirmedCases);
-            totalDeaths.text(covidInfo.stats.breakdowns[i].totalDeaths);
-            totalRecoveredCases.text(covidInfo.stats.breakdowns[i].totalRecoveredCases);
+            provinceOrState.text("State: " + covidInfo.stats.breakdowns[i].location.provinceOrState);
+            totalConfirmedCases.text("Confirmed cases: " + covidInfo.stats.breakdowns[i].totalConfirmedCases);
+            totalDeaths.text("Total deaths: " + covidInfo.stats.breakdowns[i].totalDeaths);
+            totalRecoveredCases.text("Total recovered cases: " + covidInfo.stats.breakdowns[i].totalRecoveredCases);
 
             covidInfoBox.append(provinceOrState, totalConfirmedCases, totalDeaths, totalRecoveredCases);
-
           }
         }
-
       })
     })
   })
