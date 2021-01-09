@@ -26,28 +26,27 @@ $.ajax({
 // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
 
 // covid data by country/state
-QueryURL2 = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/"
+QueryURL2 = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=60cc0bce2emsh9ba3c88eb3c4d5dp125545jsnc79365a8f484"
 
 $.ajax({
   url: QueryURL2,
   method: "GET"
-  // datatype : "jsonp"
 }).then(function (currentDay) {
-  
+
   console.log(currentDay);
 });
 let map;
 
 function initMap() {
-map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: 41.5, lng: -100},
-  zoom: 4
-});
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 41.5, lng: -100 },
+    zoom: 4
+  });
 }
 
 initMap();
 
-Queryurl3 = "https://api.smartable.ai/coronavirus/news/:CA"
+Queryurl3 = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=60cc0bce2emsh9ba3c88eb3c4d5dp125545jsnc79365a8f484"
 
 $.ajax({
   url: Queryurl3,
@@ -57,4 +56,31 @@ $.ajax({
 });
 
 // button here
-// $("#Identifer").("<button>").text("something");
+var cityInfoBox = $("container tile is-child notification is-primary")
+$(".fa-search").click(function () {
+  var searchTerm = $("#search-term").val()
+  for (i = 0; i < breakdowns.length; i++);
+  if (searchTerm === stats.breakdowns[i].location.provinceOrState);
+
+  var provinceOrState = $("<div>").text(stats.breakdowns[i].location.provinceOrState);
+  var totalConfirmedCases = $("<div>").text(stats.breakdowns[i].totalConfirmedCases);
+  var totalDeaths = $("<div>").text(stats.breakdowns[i].totalDeaths);
+  var totalRecoveredCases = $("<div>").text(stats.breakdowns[i].totalRecoveredCases);
+
+  cityInfoBox.append(provinceOrState, totalConfirmedCases, totalDeaths, totalRecoveredCases);
+
+  // for (j = 0 j < length; i++)
+
+
+
+
+
+
+
+
+
+
+
+  // $("<div>").text(stats.)
+});
+
