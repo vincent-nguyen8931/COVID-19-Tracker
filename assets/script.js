@@ -7,7 +7,6 @@ let map;
     map = new google.maps.Map(document.getElementById('map'), {
       center: { lat: 41.5, lng: -100 },
       zoom: 4
-    
     });
   }
   initMap();
