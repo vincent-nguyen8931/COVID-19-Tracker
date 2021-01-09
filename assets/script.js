@@ -89,4 +89,21 @@ $(document).ready(function () {
       })
     })
   })
-})
+
+  // hamburger menu toggle variables
+var navbarToggle = $("#nav-toggle")
+var toggle = 0;
+  // hamburger menu toggle
+  $("#nav-toggle").click(function() {
+    if (toggle === 0) {
+    navbarToggle.attr("class", ".is-active");
+    toggle++;
+    }
+    else {
+      navbarToggle.removeAttr("class", ".is-active");
+      toggle--;
+    }
+    
+  })
+
+}) // document ready closing brackets
