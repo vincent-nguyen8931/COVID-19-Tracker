@@ -13,9 +13,6 @@ let map;
   }
 });
 
-  
-
-
 $(document).ready(function () {
   // Prospective steps
   // 1. find the user's city
@@ -56,7 +53,7 @@ $(document).ready(function () {
   //   console.log(currentDay);
   // });
 
-
+// var clickCount =0 ;
 
   // covid data by country/state
   var provinceOrState = $("<div>")
@@ -65,21 +62,21 @@ $(document).ready(function () {
   var totalRecoveredCases = $("<div>")
 
   $("#search-button").click(function () {
-    // event.preventDefault()
     covidStats = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=60cc0bce2emsh9ba3c88eb3c4d5dp125545jsnc79365a8f484";
 
     $.ajax({
       url: covidStats,
       method: "GET"
     }).then(function (covidInfo) {
-console.log(covidInfo)
+// console.log(covidInfo)
       var covidInfoBox = $("#covid-info");
       var searchTerm = $("#search-term").val();
       var arrayLength = covidInfo.stats.breakdowns.length;
 
 // solve the double click issue with this click
-      $("#search-button").click(function () {
-        for (i = 0; i < arrayLength; i++) {
+        // clickCount++
+        // console.log(clickCount)
+        for (i = 0; i < arrayLength-1; i++) {
           var state = covidInfo.stats.breakdowns[i].location.provinceOrState
           if (searchTerm === state) {
 
@@ -91,7 +88,6 @@ console.log(covidInfo)
             covidInfoBox.append(provinceOrState, totalConfirmedCases, totalDeaths, totalRecoveredCases);
           }
         }
-      })
     })
   })
 
