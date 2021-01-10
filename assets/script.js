@@ -13,20 +13,20 @@
 // }
 //   // initMap();
 // }
-$(document).ready(function () {
-  if (window.location.pathname == "/index.html") {
-    let map;
+// $(document).ready(function () {
+//   if (window.location.pathname == "/index.html") {
+//     let map;
 
-    function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 41.5, lng: -100 },
-        zoom: 4
-      });
-    }
-    initMap();
+//     function initMap() {
+//       map = new google.maps.Map(document.getElementById('map'), {
+//         center: { lat: 41.5, lng: -100 },
+//         zoom: 4
+//       });
+//     }
+//     initMap();
 
-  }
-});
+//   }
+// });
 
 $(document).ready(function () {
   // Prospective steps
@@ -117,15 +117,12 @@ $(document).ready(function () {
                 label: 'My First dataset',
                 backgroundColor: ['rgb(255, 99, 132)', 'rgb(230,80,130)', 'rgb(200,50,120)'],
                 borderColor: 'rgb(255, 99, 132)',
-                data: [totalConfirmedCases, totalDeaths, totalRecoveredCases]
+                data: [covidInfo.stats.breakdowns[i].location.provinceOrState,
+                covidInfo.stats.breakdowns[i].totalDeaths,
+                covidInfo.stats.breakdowns[i].totalRecoveredCases],
 
-              }, {
-
-              }]
-
+              }],
             },
-
-
             // Configuration options go here
             options: {}
           });
