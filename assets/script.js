@@ -1,4 +1,18 @@
 // Only loads map on the index.html page. Used to keep hamburger menu working on about and doc html page.
+var counter = 0;
+if (counter === 0) {
+
+
+  let map;
+
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: 41.5, lng: -100 },
+      zoom: 4
+    });
+  }
+  initMap();
+}
 $(document).ready(function () {
   if (window.location.pathname == "/index.html") {
     let map;
@@ -10,6 +24,7 @@ $(document).ready(function () {
       });
     }
     initMap();
+
   }
 });
 
