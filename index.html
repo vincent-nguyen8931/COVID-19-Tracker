@@ -3,12 +3,15 @@
 
 <head>
 
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Add non-bootstrap css framework -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="assets/style.css">
+    <!--cdn script for chart.js-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
     <!-- Google maps api -->
     <script defer
@@ -27,6 +30,21 @@
 </head>
 
 <body>
+    <script>
+        let map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 41.5, lng: -100 },
+                zoom: 4
+            });
+        }
+        initMap();
+
+
+    </script>
+
+
 
     <!-- Navbar-->
     <nav class="navbar has-background-danger" role="navigation" aria-label="main navigation">
@@ -116,7 +134,7 @@
             <article class="container tile is-child notification is-info">
                 <h1 class="title">Covid Info</h1>
                 <div class="city-info" id="covid-info">
-
+                    <canvas id="myChart" width="200" height="200"></canvas>
                 </div>
             </article>
 
