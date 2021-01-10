@@ -1,19 +1,5 @@
 // Only loads map on the index.html page. Used to keep hamburger menu working on about and doc html page.
 $(document).ready(function () {
-  if (window.location.pathname == "/index.html") {
-    let map;
-
-    function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 41.5, lng: -100 },
-        zoom: 4
-      });
-    }
-    initMap();
-  }
-});
-
-$(document).ready(function () {
   // Prospective steps
   // 1. find the user's city
   // 2. Display the testing sites on the map (no progress on this yet)
@@ -22,12 +8,18 @@ $(document).ready(function () {
   // 5. be provided directions for testing location
   QueryURL = "https://discover.search.hereapi.com/v1/discover?apikey=cm9nka7Eq7NC7YfrsKwehxVumUyYYWiARjJBuXRa484&q=Covid&at=30.22,-92.02&limit=3"
 
+
   $.ajax({
     url: QueryURL,
     method: "GET"
   }).then(function (currentDay) {
+
     console.log(currentDay);
   });
+
+
+// get geocoords
+
 
 
   // // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/jsonp?origin=Lafayette&units=imperial&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
@@ -43,7 +35,27 @@ $(document).ready(function () {
   // var searchTerm = $("#search-term").val();
   // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?" + searchTerm + "key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
 
+let autocomplete;
+function initAutocomplete() {
+  autocomplete = new google.maps.places.Autocomplete(
+    $("#search-term"), {
+      types: ['establishment'],
+      componentRestrictions: {"country": ["US"]},
+      fields: ["place_id", "geometry", "name"]
+    });
 
+    autocomplete.addListener("#search-term", onPlaceChanged);
+}
+initAutocomplete()
+function onPlaceChanged() {
+  var place = autocomplete.getPlace();
+
+  if (!place.geometry) {
+    $("#search-term").placeholder = "Enter a place";
+  } else {
+    $("#covid-info").innerHTML = place.name;
+  }
+}
 
   // $.ajax({
   //   url: QueryURL2,
@@ -62,7 +74,22 @@ $(document).ready(function () {
   var totalRecoveredCases = $("<div>")
 
   $("#search-button").click(function () {
+    var searchTerm = $("#search-term").val();
+    searchTermResults = searchTerm.split(",");
+    console.log(searchTermResults)
     covidStats = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=60cc0bce2emsh9ba3c88eb3c4d5dp125545jsnc79365a8f484";
+
+
+    var querurl = "https://geocode.search.hereapi.com/v1/geocode?q=" + searchTermResults[0] + "+" + searchTermResults[1] + "+US&apiKey=cm9nka7Eq7NC7YfrsKwehxVumUyYYWiARjJBuXRa484";
+
+    $.ajax({
+      url: querurl,
+      method: "GET"
+    }).then(function (currentDay) {
+      console.log(currentDay);
+    });
+  
+
 
     $.ajax({
       url: covidStats,
