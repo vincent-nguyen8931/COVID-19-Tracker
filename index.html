@@ -22,18 +22,20 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 		crossorigin="anonymous"></script>
 
+	<link rel="icon" href="assets/images/favicon.png" type="image/png" />
 	<title>COVID-19 Tracker</title>
 </head>
+
 <body>
 
 	<!-- Navbar-->
 	<nav class="navbar has-background-danger" role="navigation" aria-label="main navigation">
 		<div class="navbar-brand">
-			<div class="navbar-item is-size-1">
-				<span class="icon mr-5">
-					<i class="fas fa-home"></i>
-				</span>
-				<h1 class="is-size-2">COVID-19 Tracker</h1>
+			<div class="navbar-item">
+
+				<img src="assets/images/logo_transparent.png" class="image has-ratio m-2" alt="logo">
+
+				<h1 class="is-size-3"> COVID-19 TRACKER</h1>
 			</div>
 
 			<!-- Navbar Burger Icon -->
@@ -47,7 +49,8 @@
 		</div>
 
 		<!-- Navbar Menu -->
-		<div id="navbarBasicExample" class="navbar-menu" id="nav-menu">
+		<div id="navbarBasicExample" class="navbar-menu">
+			<!-- removed nav-bar id since another id exists -->
 			<div class="navbar-start">
 				<a class="navbar-item" href="index.html">Home</a>
 				<a class="navbar-item" href="docs.html">Documentation</a>
@@ -55,25 +58,6 @@
 			</div>
 		</div>
 
-		<!-- Search in Navbar -->
-		<!-- <div class="navbar-end">
-			<div class="navbar-item">
-				<div class="level-item">
-					<div class="field has-addons">
-						<p class="control">
-							<input class="input is-rounded" type="text" placeholder="Search city name">
-						</p>
-						<p class="control">
-							<button class="button is-primary is-rounded">
-								<i class="fas fa-search"></i>
-							</button>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div> -->
-
-		</div>
 	</nav>
 
 
@@ -90,9 +74,7 @@
 			</p>
 		</div>
 		<h1>
-			<!-- <strong><- Input your address here!</strong> -->
 			<strong>Covid Information Mega Ultra Search Tool</strong>
-			<!-- <strong><- Input your address here!</strong> -->
 		</h1>
 	</div>
 
@@ -132,7 +114,7 @@
 			<article class="container tile is-child notification is-info">
 				<h1 class="title">Covid Info</h1>
 				<h2 class="subtitle">Search city name here</h2>
-				<div class="city-info" id="city-info">
+				<div class="city-info" id="covid-info">
 
 				</div>
 			</article>
@@ -145,9 +127,7 @@
 			<article class="container tile is-child notification is-primary">
 				<!-- <h1 class="title">Map</h1>
 				<h2 class="subtitle">With an image</h2> -->
-				<figure class="image is-4by3">
-					<img src="https://bulma.io/images/placeholders/640x480.png">
-				</figure>
+				<div id="map"></div>
 			</article>
 		</div>
 
@@ -214,33 +194,20 @@
 		<button class="modal-close is-large" aria-label="close"></button>
 	</div>
 
-
-
-
 	<!-- Footer -->
 
 	<div class="tile is-parent is-vertical is-12">
 
 		<article class="tile is-child notification">
 			<div class="content has-text-centered">
-				<p class="subtitle has-text-grey-light">COVID-19 Tracker by Abuye Mamuye, Austin Woo, Muhammad A Khalid, Vincent Nguyen. The
-					source code is licensed
+				<p class="subtitle has-text-grey-light">
+					COVID-19 Tracker by Abuye Mamuye, Austin Woo, Muhammad A Khalid, Vincent Nguyen. The source code is licensed
 					<a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
 				</p>
 			</div>
 		</article>
 
 	</div>
-
-	<!-- <footer class="footer is-flex-grow-0 ">
-		<div class="content has-text-centered">
-			<p>
-				<strong>COVID-19 Tracker</strong> by Abuye Mamuye, Austin Woo, Muhammad A Khalid, Vincent Nguyen. The
-				source code is licensed
-				<a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
-			</p>
-		</div>
-	</footer> -->
 
 	<!--Add libraries here-->
 	<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
