@@ -25,7 +25,16 @@
 	<title>COVID-19 Tracker</title>
 </head>
 <body>
+    <script>
+        let map;
 
+function initMap() {
+ map = new google.maps.Map(document.getElementById('map'), {
+   center: { lat: 41.5, lng: -100 },
+   zoom: 4
+ });
+}
+   </script>
 	<!-- Navbar-->
 	<nav class="navbar has-background-danger" role="navigation" aria-label="main navigation">
 		<div class="navbar-brand">
