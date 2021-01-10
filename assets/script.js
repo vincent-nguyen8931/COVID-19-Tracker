@@ -1,18 +1,18 @@
 // Only loads map on the index.html page. Used to keep hamburger menu working on about and doc html page.
-var counter = 0;
-if (counter === 0) {
+// var counter = 0;
+// if (counter === 0) {
 
 
-  let map;
+//   // let map;
 
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: { lat: 41.5, lng: -100 },
-      zoom: 4
-    });
-  }
-  initMap();
-}
+//   // function initMap() {
+//   //   map = new google.maps.Map(document.getElementById('map'), {
+//   //     center: { lat: 41.5, lng: -100 },
+//   //     zoom: 4
+//   //   });
+// }
+//   // initMap();
+// }
 $(document).ready(function () {
   if (window.location.pathname == "/index.html") {
     let map;
@@ -45,15 +45,19 @@ $(document).ready(function () {
   });
 
 
-  // // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/jsonp?origin=Lafayette&units=imperial&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
+  // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/jsonp?origin=Lafayette&units=imperial&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
 
   // var searchTerm = $("#search-term").val();
   //   // places google. api key invalid error. 
-  // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + searchTerm + "&inputtype=textquery&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI" ;
+  // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + searchTerm + "&inputtype=textquery&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI";
 
   // test text for google place
-  // https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Walmart&inputtype=textquery&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI%22
 
+  // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Chipotle&inputtype=textquery&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI";
+  // ChIJ330FZho8tokR9bmzNys2YfU chipotle place id //
+  //
+  // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?place_id=ChIJ330FZho8tokR9bmzNys2YfU&fields=name&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI";
+  // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJ330FZho8tokR9bmzNys2YfU&fields=name,rating,formatted_phone_number&key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI";
   // autocomplete places. needs more testing
   // var searchTerm = $("#search-term").val();
   // QueryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?" + searchTerm + "key=AIzaSyDs01d715oubUTbz2ZrZSYWVH-k7N9n9xI"
@@ -86,6 +90,7 @@ $(document).ready(function () {
       // console.log(covidInfo)
       var covidInfoBox = $("#covid-info");
       var searchTerm = $("#search-term").val();
+      console.log(searchTerm)
       var arrayLength = covidInfo.stats.breakdowns.length;
 
       // solve the double click issue with this click
@@ -99,6 +104,31 @@ $(document).ready(function () {
           totalConfirmedCases.text("Confirmed cases: " + covidInfo.stats.breakdowns[i].totalConfirmedCases);
           totalDeaths.text("Total deaths: " + covidInfo.stats.breakdowns[i].totalDeaths);
           totalRecoveredCases.text("Total recovered cases: " + covidInfo.stats.breakdowns[i].totalRecoveredCases);
+
+          var ctx = document.getElementById('myChart').getContext('2d');
+          var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'pie',
+
+            // The data for our dataset
+            data: {
+              labels: ['Total Confirmed Cases', 'Total Recovered Cases', 'Total Deaths'],
+              datasets: [{
+                label: 'My First dataset',
+                backgroundColor: ['rgb(255, 99, 132)', 'rgb(230,80,130)', 'rgb(200,50,120)'],
+                borderColor: 'rgb(255, 99, 132)',
+                data: [totalConfirmedCases, totalDeaths, totalRecoveredCases]
+
+              }, {
+
+              }]
+
+            },
+
+
+            // Configuration options go here
+            options: {}
+          });
 
           covidInfoBox.append(provinceOrState, totalConfirmedCases, totalDeaths, totalRecoveredCases);
         }
@@ -125,23 +155,48 @@ $(document).ready(function () {
 
   })
 
-  // var ctx = document.getElementById('#covid-info').getContext('2d');
-  // var myPieChart = new Chart(ctx, {
+  // var ctx = document.getElementById('myChart').getContext('2d');
+  // var chart = new Chart(ctx, {
+  //   // The type of chart we want to create
   //   type: 'pie',
+
   //   // The data for our dataset
   //   data: {
-  //     labels: ['State', 'Total Confirmed Cases', 'Total Deaths', 'Total Recovered Cases'],
+  //     labels: ['Total Confirmed Cases', 'Total Recovered Cases', 'Total Deaths'],
   //     datasets: [{
-  //       label: "proevinceOrState",
-  //       backgroundColor: 'rgb(255, 99, 132)',
+  //       label: 'My First dataset',
+  //       backgroundColor: ['rgb(255, 99, 132)', 'rgb(230,80,130)', 'rgb(200,50,120)'],
   //       borderColor: 'rgb(255, 99, 132)',
-  //       data: []
+  //       data: [5, 10, 5,]
+
+  //     }, {
+
   //     }]
+
   //   },
+
 
   //   // Configuration options go here
   //   options: {}
   // });
+  //   var markers = []
+  //   markers.push(new google.maps.Marker({
+  //     map: map,
+  //     title: p.name,
+  //     position: p.geometry.location
+  //   }));
+
+  //   if (p.geometry.viewport)
+  //     bounds.union(p.geometry.viewport);
+  //   else
+  //     bounds.extend(p.geometry.location);
+  // });
+  // map.fitBounds(bounds);
+
+
+
+
+
 
 
 
