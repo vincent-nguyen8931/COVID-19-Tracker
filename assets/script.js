@@ -125,25 +125,23 @@ $(document).ready(function () {
 
   })
 
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
+  // var ctx = document.getElementById('#covid-info').getContext('2d');
+  // var myPieChart = new Chart(ctx, {
+  //   type: 'pie',
+  //   // The data for our dataset
+  //   data: {
+  //     labels: ['State', 'Total Confirmed Cases', 'Total Deaths', 'Total Recovered Cases'],
+  //     datasets: [{
+  //       label: "proevinceOrState",
+  //       backgroundColor: 'rgb(255, 99, 132)',
+  //       borderColor: 'rgb(255, 99, 132)',
+  //       data: []
+  //     }]
+  //   },
 
-    // The data for our dataset
-    data: {
-      labels: [, , , , , ,],
-      datasets: [{
-        label: 'My First dataset',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: [0, 10, 5, 2, 20, 30, 45]
-      }]
-    },
-
-    // Configuration options go here
-    options: {}
-  });
+  //   // Configuration options go here
+  //   options: {}
+  // });
 
 
 
