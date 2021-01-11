@@ -103,11 +103,12 @@ $(document).ready(function () {
                   labels: ['Total Confirmed Cases', 'Total Recovered Cases', 'Total Deaths'],
                   datasets: [{
                     label: 'My First dataset',
-                    backgroundColor: ['rgb(254, 99, 132)', 'rgb(230,80,130)', 'rgb(200,50,120)'],
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: [covidInfo.stats.breakdowns[i].location.provinceOrState,
-                    covidInfo.stats.breakdowns[i].totalRecoveredCases,
-                    covidInfo.stats.breakdowns[i].totalDeaths],
+                    backgroundColor: ['rgb(0, 0, 255, 0.6)', 'rgb(255, 255, 0, 0.9)', 'red'],
+                    borderColor: 'rgb(0, 209, 178)',
+                    data: [
+                      covidInfo.stats.breakdowns[i].totalConfirmedCases,
+                      covidInfo.stats.breakdowns[i].totalRecoveredCases,
+                      covidInfo.stats.breakdowns[i].totalDeaths],
 
                   }],
                 },
