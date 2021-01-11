@@ -117,7 +117,7 @@ $(document).ready(function () {
               });
               // Append information obtained above to covid info box
               covidInfoBox.append(provinceOrState, totalConfirmedCases, totalDeaths, totalRecoveredCases);
-              searchTerm.val(" ");
+              $("#search-term").val("");
             }
           }
         })
