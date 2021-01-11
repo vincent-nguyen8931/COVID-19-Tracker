@@ -1,10 +1,6 @@
 # COVID-19-Tracker
 
 ## Table of Contents
-1. [Authors](#authors)
-2. [Acknowledgments](#acknowledgments)
-
-## Table of Contents
 1. [Description](#description)
 2. [Deployed Link](#deployed-link)
 3. [How to Start](#how-to-start)
@@ -21,6 +17,7 @@
 
 -----------------------
 ## Deployed Link
+https://austinwoo123.github.io/COVID-19-Tracker/
 
 -----------------------
 ## How to Start
