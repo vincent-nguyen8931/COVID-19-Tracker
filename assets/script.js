@@ -67,9 +67,12 @@ $(document).ready(function () {
     
           for loop needed for all 3 items.length
           */
+          //if search term is valid, then proceed to creating the content//
           if (isValid === true) {
+            //this creates the testing location tiles// 
             for (i = 0; i < testingSites.items.length; i++) {
-              var j = i + 1
+
+              //We are creating new html elements here//
               var newH1 = $("<h1>");
               var newArticle = $("<article>");
               var topDiv = $("<div>");
@@ -77,14 +80,14 @@ $(document).ready(function () {
               //add content to div
               var testingSiteStreet = $("<div>").text(testingSites.items[i].address.houseNumber + " " + testingSites.items[i].address.street);
               var testingSiteCityStateZip = $("<div>").text(testingSites.items[i].address.city + ", " + testingSites.items[i].address.stateCode + " " + testingSites.items[i].address.postalCode);
-
+              // we are adding classes to the new html elements given the bulma css styling//
               newH1.addClass("subtitle").text(testingSites.items[i].title);
               newArticle.addClass("tile is-child notification is-warning");
               topDiv.addClass("tile is-parent is-4");
-
+              // constructing the new html elements //
               newArticle.append(newH1, testingSiteStreet, testingSiteCityStateZip);
               topDiv.append(newArticle);
-
+              // Appending new html elements to page//
               $("#testingSites").append(topDiv);
             }
           }
@@ -106,9 +109,6 @@ $(document).ready(function () {
 
             for (i = 0; i < arrayLength - 1; i++) {
               var state = covidInfo.stats.breakdowns[i].location.isoCode
-              // console.log(stateNameResults)
-              // console.log(state)
-
 
               if (stateNameResults === state) {
 
@@ -127,7 +127,7 @@ $(document).ready(function () {
 
                   // This creates a chart from the information retrieved from the variables above and places them into a pie chart.
                   data: {
-                    // this allows us to insert and compare three different data sets 
+                    // this allows us to insert and compare three statistics of covid//  
                     labels: ['Total Confirmed Cases', 'Total Recovered Cases', 'Total Deaths'],
                     datasets: [{
                       label: 'My First dataset',
