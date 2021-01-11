@@ -75,8 +75,8 @@ $(document).ready(function () {
           var covidInfoBox = $("#covid-info");
 
           var arrayLength = covidInfo.stats.breakdowns.length;
-          console.log(searchTermResults[searchTermResults.length-1])
-          var stateName = searchTermResults[searchTermResults.length-1].toUpperCase();
+          console.log(searchTermResults[searchTermResults.length - 1])
+          var stateName = searchTermResults[searchTermResults.length - 1].toUpperCase();
           console.log(stateName)
           var stateNameResults = "US-" + stateName.toUpperCase();
 
@@ -85,7 +85,7 @@ $(document).ready(function () {
             // console.log(stateNameResults)
             // console.log(state)
             if (stateNameResults === state) {
-               
+
               provinceOrState.text("State: " + covidInfo.stats.breakdowns[i].location.provinceOrState);
               totalConfirmedCases.text("Confirmed cases: " + covidInfo.stats.breakdowns[i].totalConfirmedCases);
               totalDeaths.text("Total deaths: " + covidInfo.stats.breakdowns[i].totalDeaths);
@@ -103,7 +103,7 @@ $(document).ready(function () {
                   labels: ['Total Confirmed Cases', 'Total Recovered Cases', 'Total Deaths'],
                   datasets: [{
                     label: 'My First dataset',
-                    backgroundColor: ['rgb(255, 99, 132)', 'rgb(230,80,130)', 'rgb(200,50,120)'],
+                    backgroundColor: ['rgb(254, 99, 132)', 'rgb(230,80,130)', 'rgb(200,50,120)'],
                     borderColor: 'rgb(255, 99, 132)',
                     data: [covidInfo.stats.breakdowns[i].location.provinceOrState,
                     covidInfo.stats.breakdowns[i].totalDeaths,
