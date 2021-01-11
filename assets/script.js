@@ -33,7 +33,7 @@ $(document).ready(function () {
         url: testingSiteURL,
         method: "GET"
       }).then(function (testingSites) {
-
+        $("#testingSites").empty();
         console.log(testingSites)
 
         /* 
@@ -53,7 +53,7 @@ $(document).ready(function () {
           var testingSiteStreet = $("<div>").text(testingSites.items[i].address.houseNumber + " " + testingSites.items[i].address.street);
           var testingSiteCityStateZip = $("<div>").text(testingSites.items[i].address.city + ", " + testingSites.items[i].address.stateCode + " " + testingSites.items[i].address.postalCode);
 
-          newH1.addClass("subtitle").text("Testing Location #" + j);
+          newH1.addClass("subtitle").text(testingSites.items[i].title);
           newArticle.addClass("tile is-child notification is-warning");
           topDiv.addClass("tile is-parent is-4");
 
@@ -62,8 +62,6 @@ $(document).ready(function () {
 
           $("#testingSites").append(topDiv);
         }
-
-
 
         covidStats = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=60cc0bce2emsh9ba3c88eb3c4d5dp125545jsnc79365a8f484";
 
