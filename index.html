@@ -66,15 +66,15 @@
             <strong>Search Covid Statistics</strong>
         </h1>
 
-        <div class="field has-addons is-rounded">
-            <form data-parsley-validate="" data-parsley-pattern="^[a-zA-z][A-z\s]*$">
-                <input type="text" class="form-control input is-rounded" id="search-term" name="fullname" required=""
+        <form name="validation">
+            <div class="field has-addons is-rounded">
+                <input type="text" class="form-control input is-rounded" name="searchTermHTML" id="search-term"
                     placeholder="Enter City and State">
-            </form>
-            <button class="button is-primary is-rounded" id="search-button">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
+                <button type="submit" class="button is-primary is-rounded" id="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
     </div>
 
     <div class="tile">
@@ -83,7 +83,7 @@
         <div class="tile is-parent is-vertical is-4">
             <article class="container tile is-child notification is-info">
                 <h1 class="title has-text-weight-bold">Covid Info</h1>
-                <div class="city-info" id="covid-info"></div>
+                <div class="city-info subtitle" id="covid-info"></div>
             </article>
         </div>
 
