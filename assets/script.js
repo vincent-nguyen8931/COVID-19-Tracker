@@ -106,8 +106,8 @@ $(document).ready(function () {
                     backgroundColor: ['rgb(254, 99, 132)', 'rgb(230,80,130)', 'rgb(200,50,120)'],
                     borderColor: 'rgb(255, 99, 132)',
                     data: [covidInfo.stats.breakdowns[i].location.provinceOrState,
-                    covidInfo.stats.breakdowns[i].totalDeaths,
-                    covidInfo.stats.breakdowns[i].totalRecoveredCases],
+                    covidInfo.stats.breakdowns[i].totalRecoveredCases,
+                    covidInfo.stats.breakdowns[i].totalDeaths],
 
                   }],
                 },
