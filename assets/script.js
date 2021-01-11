@@ -10,6 +10,7 @@ $(document).ready(function () {
   var totalConfirmedCases = $("<div>");
   var totalDeaths = $("<div>");
   var totalRecoveredCases = $("<div>");
+
   var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
   var errorDiv = $("<div>")
   var isValid = true;
@@ -22,8 +23,8 @@ $(document).ready(function () {
 
     var searchTerm = $("#search-term").val().trim();
     console.log(searchTerm)
-    $("#search-term").parsley().validate(type='number')
-    console.log( $("#search-term").parsley())
+    $("#search-term").parsley().validate(type = 'number')
+    console.log($("#search-term").parsley())
     var searchTermResults = searchTerm.split(" "); // clears out array as well. useful to keep in even if , isn't being used.
     // for (i = 0; i < searchTerm.length; i++) {
     //   for (j = 0; j < numbers.length; j++) {
@@ -51,7 +52,7 @@ $(document).ready(function () {
         var cityLng = cityLocation.items[0].position.lng
         // Url uses the variables above 
         testingSiteURL = "https://discover.search.hereapi.com/v1/discover?apikey=cm9nka7Eq7NC7YfrsKwehxVumUyYYWiARjJBuXRa484&q=Covid&at=" + cityLat + "," + cityLng + "&limit=3"
-
+        // we are using the ajax call method to retrieve the testing sites for covid here//
         $.ajax({
           url: testingSiteURL,
           method: "GET"
@@ -66,37 +67,37 @@ $(document).ready(function () {
     
           for loop needed for all 3 items.length
           */
-         if (isValid === true) {
-          for (i = 0; i < testingSites.items.length; i++) {
-            var j = i + 1
-            var newH1 = $("<h1>");
-            var newArticle = $("<article>");
-            var topDiv = $("<div>");
+          if (isValid === true) {
+            for (i = 0; i < testingSites.items.length; i++) {
+              var j = i + 1
+              var newH1 = $("<h1>");
+              var newArticle = $("<article>");
+              var topDiv = $("<div>");
 
-            //add content to div
-            var testingSiteStreet = $("<div>").text(testingSites.items[i].address.houseNumber + " " + testingSites.items[i].address.street);
-            var testingSiteCityStateZip = $("<div>").text(testingSites.items[i].address.city + ", " + testingSites.items[i].address.stateCode + " " + testingSites.items[i].address.postalCode);
+              //add content to div
+              var testingSiteStreet = $("<div>").text(testingSites.items[i].address.houseNumber + " " + testingSites.items[i].address.street);
+              var testingSiteCityStateZip = $("<div>").text(testingSites.items[i].address.city + ", " + testingSites.items[i].address.stateCode + " " + testingSites.items[i].address.postalCode);
 
-            newH1.addClass("subtitle").text(testingSites.items[i].title);
-            newArticle.addClass("tile is-child notification is-warning");
-            topDiv.addClass("tile is-parent is-4");
+              newH1.addClass("subtitle").text(testingSites.items[i].title);
+              newArticle.addClass("tile is-child notification is-warning");
+              topDiv.addClass("tile is-parent is-4");
 
-            newArticle.append(newH1, testingSiteStreet, testingSiteCityStateZip);
-            topDiv.append(newArticle);
+              newArticle.append(newH1, testingSiteStreet, testingSiteCityStateZip);
+              topDiv.append(newArticle);
 
-            $("#testingSites").append(topDiv);
+              $("#testingSites").append(topDiv);
+            }
           }
-        }
 
           covidStats = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=8e3b8b5f5amsh15e98c7a0edaf6bp1f8a5bjsn9ed5ca6c622e";
-
+          // we are using the ajax call method to get the covid statistics//
           $.ajax({
             url: covidStats,
             method: "GET"
           }).then(function (covidInfo) {
             console.log(covidInfo)
             var covidInfoBox = $("#covid-info");
-
+            // we are specifically getting the covid info that we want and declaring it a variable//
             var arrayLength = covidInfo.stats.breakdowns.length;
             console.log(searchTermResults[searchTermResults.length - 1])
             var stateName = searchTermResults[searchTermResults.length - 1].toUpperCase();
@@ -107,8 +108,11 @@ $(document).ready(function () {
               var state = covidInfo.stats.breakdowns[i].location.isoCode
               // console.log(stateNameResults)
               // console.log(state)
+
+
               if (stateNameResults === state) {
 
+                // This pulls the information from the ajax call above and creates a text to display//
                 provinceOrState.text("State: " + covidInfo.stats.breakdowns[i].location.provinceOrState);
                 totalConfirmedCases.text("Confirmed cases: " + covidInfo.stats.breakdowns[i].totalConfirmedCases);
                 totalDeaths.text("Total deaths: " + covidInfo.stats.breakdowns[i].totalDeaths);
@@ -121,16 +125,22 @@ $(document).ready(function () {
                   // The type of chart we want to create
                   type: 'pie',
 
-                  // This creates a chart from the information retrieved from the variables above and placed them into a pie chart.
+                  // This creates a chart from the information retrieved from the variables above and places them into a pie chart.
                   data: {
+                    // this allows us to insert and compare three different data sets 
                     labels: ['Total Confirmed Cases', 'Total Recovered Cases', 'Total Deaths'],
                     datasets: [{
                       label: 'My First dataset',
+                      // This changes the colors of the pie chart //
                       backgroundColor: ['rgb(0, 0, 255, 0.6)', 'rgb(255, 255, 0, 0.9)', 'red'],
                       borderColor: 'rgb(0, 209, 178)',
+                      // this pulls the data from the covid statistic api and matches it with the specific labels.
                       data: [
+                        // confirmed cases data //
                         covidInfo.stats.breakdowns[i].totalConfirmedCases,
+                        // total recovered cases data//
                         covidInfo.stats.breakdowns[i].totalRecoveredCases,
+                        // total deaths data //
                         covidInfo.stats.breakdowns[i].totalDeaths],
 
                     }],
@@ -138,7 +148,7 @@ $(document).ready(function () {
                   // Configuration options go here
                   options: {}
                 });
-                // Append information obtained above to covid info box
+                // Append information obtained above to Covid Info box
                 covidInfoBox.append(provinceOrState, totalConfirmedCases, totalDeaths, totalRecoveredCases);
                 $("#search-term").val("");
               }
