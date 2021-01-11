@@ -33,7 +33,7 @@ $(document).ready(function () {
         url: testingSiteURL,
         method: "GET"
       }).then(function (testingSites) {
-
+        $("#testingSites").empty();
         console.log(testingSites)
 
         /* 
@@ -53,7 +53,7 @@ $(document).ready(function () {
           var testingSiteStreet = $("<div>").text(testingSites.items[i].address.houseNumber + " " + testingSites.items[i].address.street);
           var testingSiteCityStateZip = $("<div>").text(testingSites.items[i].address.city + ", " + testingSites.items[i].address.stateCode + " " + testingSites.items[i].address.postalCode);
 
-          newH1.addClass("subtitle").text("Testing Location #" + j);
+          newH1.addClass("subtitle").text(testingSites.items[i].title);
           newArticle.addClass("tile is-child notification is-warning");
           topDiv.addClass("tile is-parent is-4");
 
@@ -62,8 +62,6 @@ $(document).ready(function () {
 
           $("#testingSites").append(topDiv);
         }
-
-
 
         covidStats = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=60cc0bce2emsh9ba3c88eb3c4d5dp125545jsnc79365a8f484";
 
@@ -103,11 +101,12 @@ $(document).ready(function () {
                   labels: ['Total Confirmed Cases', 'Total Recovered Cases', 'Total Deaths'],
                   datasets: [{
                     label: 'My First dataset',
-                    backgroundColor: ['rgb(254, 99, 132)', 'rgb(230,80,130)', 'rgb(200,50,120)'],
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: [covidInfo.stats.breakdowns[i].location.provinceOrState,
-                    covidInfo.stats.breakdowns[i].totalRecoveredCases,
-                    covidInfo.stats.breakdowns[i].totalDeaths],
+                    backgroundColor: ['rgb(0, 0, 255, 0.6)', 'rgb(255, 255, 0, 0.9)', 'red'],
+                    borderColor: 'rgb(0, 209, 178)',
+                    data: [
+                      covidInfo.stats.breakdowns[i].totalConfirmedCases,
+                      covidInfo.stats.breakdowns[i].totalRecoveredCases,
+                      covidInfo.stats.breakdowns[i].totalDeaths],
 
                   }],
                 },
@@ -116,7 +115,7 @@ $(document).ready(function () {
               });
               // Append information obtained above to covid info box
               covidInfoBox.append(provinceOrState, totalConfirmedCases, totalDeaths, totalRecoveredCases);
-              searchTerm.val(" ");
+              $("#search-term").val("");
             }
           }
         })
