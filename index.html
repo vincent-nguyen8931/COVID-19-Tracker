@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Add non-bootstrap css framework -->
@@ -21,7 +19,7 @@
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
     <link rel="icon" href="assets/images/favicon.png" type="image/png" />
-    <title>COVID-19 Maps</title>
+    <title>COVID-19 Tracker</title>
 </head>
 
 <body>
@@ -29,12 +27,8 @@
     <nav class="navbar has-background-danger" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <div class="navbar-item is-size-1">
-
                 <img src="assets/images/logo_transparent.png" class="image has-ratio m-2" alt="logo">
-
-                <i>
-                    <h1 class="is-size-2"> COVID Maps</h1>
-                </i>
+                <h1 class="is-size-2"><i>COVID-19 Tracker</i></h1>
             </div>
 
             <!-- Navbar Burger Icon -->
@@ -62,6 +56,9 @@
 
     <!-- Standalone Search -->
     <div class="level-left m-3">
+        <h1 class="mr-3 mb-1">
+            <strong>Covid Statistics Tracker</strong>
+        </h1>
         <div class="field has-addons">
             <p class="control">
             <form data-parsley-validate>
@@ -74,107 +71,49 @@
                 </button>
             </p>
         </div>
-        <h1>
-            <strong>Covid Information Mega Ultra Search Tool</strong>
-        </h1>
+
     </div>
-
-    <!-- <div class="field">
-        <div class="control">
-            <input class="input is-medium" type="text" placeholder="Medium input">
-            <button class="button is-primary is-rounded">
-                <span class="icon-text">
-                    <span class="icon">
-                        <i class="fas fa-search"></i>
-                    </span>
-                </span>
-            </button>
-        </div>
-    </div> -->
-
 
     <div class="tile">
 
+        <!-- City Info tile -->
         <div class="tile is-parent is-vertical is-4">
-
-            <!-- Search in tile -->
-            <!-- <article class="container tile is-child notification is-light">
-				<div class="field has-addons">
-					<p class="control">
-						<input class="input is-rounded" type="text" placeholder="Search city name">
-					</p>
-					<p class="control">
-						<button class="button is-primary is-rounded">
-							<i class="fas fa-search"></i>
-						</button>
-					</p>
-				</div>
-			</article> -->
-
-            <!-- City Info tile -->
             <article class="container tile is-child notification is-info">
                 <h1 class="title">Covid Info</h1>
-                <div class="city-info" id="covid-info">
-                </div>
+                <div class="city-info" id="covid-info"></div>
             </article>
-
         </div>
 
         <!-- Map tile -->
         <div class="tile is-parent is-vertical">
-
             <article class="container tile is-child notification is-primary" width="100" height="100">
-                <!-- <h1 class="title">Map</h1>
-				<h2 class="subtitle">With an image</h2> -->
                 <canvas id="myChart"></canvas>
-
             </article>
         </div>
 
     </div>
 
-    
-
     <!-- Bottom tile -->
-    <div class="tile is-parent is-vertical is-12">
+    <div class="tile" id="testingSites">
 
-        <article class="tile is-child notification is-warning">
-            <div class="content">
-                <p class="title">City info</p>
-                <div class="content"></div>
-            </div>
-        </article>
-
-    </div>
-
-
-    <div class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <!-- Any other Bulma elements you want -->
-        </div>
-        <button class="modal-close is-large" aria-label="close"></button>
     </div>
 
     <!-- Footer -->
-
     <div class="tile is-parent is-vertical is-12">
-
         <article class="tile is-child notification">
             <div class="content has-text-centered">
                 <p class="subtitle has-text-grey-light">
                     COVID-19 Tracker by Abuye Mamuye, Austin Woo, Muhammad A Khalid, Vincent Nguyen. The source code is
-                    licensed
-                    <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+                    licensed<a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
                 </p>
             </div>
         </article>
-
     </div>
 
     <!--Add libraries here-->
     <!-- <script src="parsley.min.js"></script> -->
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <script src="parsley.min.js"></script>
     <script src="assets/script.js"></script>
 
 </body>
