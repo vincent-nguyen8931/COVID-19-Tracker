@@ -41,7 +41,7 @@ $(document).ready(function () {
           url: cityLoc,
           method: "GET"
         }).then(function (cityLocation) {
-
+          
           // calls the city lat lng and place it into the variables below
           var cityLat = cityLocation.items[0].position.lat
           var cityLng = cityLocation.items[0].position.lng
@@ -55,7 +55,6 @@ $(document).ready(function () {
             method: "GET"
           }).then(function (testingSites) {
             $("#testingSites").empty();
-            console.log(testingSites)
 
               //create the testing location tiles
               for (i = 0; i < testingSites.items.length; i++) {
@@ -89,7 +88,6 @@ $(document).ready(function () {
               url: covidStats,
               method: "GET"
             }).then(function (covidInfo) {
-              console.log(covidInfo)
               var covidInfoBox = $("#covid-info");
 
               // variables to add in state information then uppcase it
