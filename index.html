@@ -17,13 +17,12 @@
     <!-- Jquery CDN -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<!-- parsley -->
-        <script src="https://parsleyjs.org/dist/parsley.min.js" type="text/javascript"></script>
-
-
-    <!-- Parsley JS and CSS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js">
+       </script>
+        <!--
+     Parsley JS and CSS 
     <script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript"></script>
-    <link href="http://parsleyjs.org/src/parsley.css" rel="stylesheet">
+    <link href="http://parsleyjs.org/src/parsley.css" rel="stylesheet"> -->
 
     <link rel="icon" href="assets/images/favicon.png" type="image/png" />
     <title>COVID-19 Tracker</title>
@@ -65,22 +64,23 @@
         <h1 class="mr-3 mb-1">
             <strong>Search Covid Statistics</strong>
         </h1>
-
+        <!-- <form id="validate" data-parsley-validate="" data-parsley-pattern="^[a-zA-z][A-z\s]*$"> -->
+            <form name="validation">
         <div class="field has-addons is-rounded">
             <p class="control">
-            <form data-parsley-validate="" data-parsley-pattern="^[a-zA-z][A-z\s]*$">
-                <input type="text" class="form-control input is-rounded" id="search-term" name="fullname" required=""
-                    placeholder="Enter City and State">
-            </form>
+            
+                <input type="text" class="form-control input is-rounded" name="searchTermHTML" id="search-term" placeholder="Enter City and State">
+          
             <!-- <input class="input is-rounded" id="search-term" type="text" placeholder="Enter City and State"> -->
 
             </p>
             <p class="control">
-                <button class="button is-primary is-rounded" id="search-button">
+                <button type="submit" class="button is-primary is-rounded" id="search-button">
                     <i class="fas fa-search"></i>
                 </button>
             </p>
         </div>
+    </form>
     </div>
 
     <div class="tile">
