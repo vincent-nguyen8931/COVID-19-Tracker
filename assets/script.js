@@ -21,7 +21,8 @@ $(document).ready(function () {
 
     // error check to ensure text is only letters and spaces
     if (!/^[a-zA-z][A-z\s]*$/i.test(searchTerm)) { 
-      $("#errorModal").addClass("is-active") 
+      $("#errorModal").addClass("is-active");
+      $("#search-term").val(""); 
       return; 
     }
     // clears out array each split to accept new input
