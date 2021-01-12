@@ -61,14 +61,11 @@
         <h1 class="mr-3 mb-1">
             <strong>Search Covid Statistics</strong>
         </h1>
-
-        <form name="validation">
             <div class="field has-addons is-rounded">
                 <p class="control">
 
                     <input type="text" class="form-control input is-rounded" name="searchTermHTML" id="search-term"
                         placeholder="Enter City and State">
-
                 </p>
                 <p class="control">
                     <button type="submit" class="button is-primary is-rounded" id="search-button">
@@ -76,7 +73,13 @@
                     </button>
                 </p>
             </div>
-        </form>
+            <div class="modal" id="errorModal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                  <!-- Any other Bulma elements you want -->
+                </div>
+                <button class="modal-close is-large" aria-label="close" id="closeModal"></button>
+              </div>
     </div>
 
     <div class="tile">
