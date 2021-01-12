@@ -6,32 +6,24 @@ $(document).ready(function () {
   var totalDeaths = $("<div>");
   var totalRecoveredCases = $("<div>");
 
-  // validation that checks for only letters and allows spaces
-  jQuery.validator.addMethod("lettersonly", function (value, element) {
-    return this.optional(element) || /^[a-zA-z][A-z\s]*$/i.test(value);
-  }, "Enter city and state");
-
-  // form validation that checks input for letters and spaces only
-  $("form[name='validation']").validate({
-    rules: {
-      searchTermHTML: {
-        required: true,
-        lettersonly: true
-      }
-    },
+  
+  // Closes the error modal
+  $("#closeModal").click(function () {
+    $("#errorModal").removeClass("is-active")
   })
 
   // click listener for the search bar
-  $("#search-button").click(function () {
-
-    // stops page from refreshing when form is submitted
-    $("form[name='validation']").submit(function (e) {
+  $("#search-button").click(function (e) {
       e.preventDefault();
-    })
 
     // reads in the value of the search term
     var searchTerm = $("#search-term").val().trim();
 
+    // error check to ensure text is only letters and spaces
+    if (!/^[a-zA-z][A-z\s]*$/i.test(searchTerm)) { 
+      $("#errorModal").addClass("is-active") 
+      return; 
+    }
     // clears out array each split to accept new input
     var searchTermResults = searchTerm.split(" ");
 
