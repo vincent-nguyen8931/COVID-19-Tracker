@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Add non-bootstrap css framework -->
+    
+    <!-- CSS Framework -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="assets/style.css">
-    <!--cdn script for chart.js-->
+    
+    <!--Chart.JS CDN-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
     <!-- AJAX CDN -->
@@ -17,10 +19,6 @@
     <!-- Jquery CDN -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
-    <!-- jquery validator CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js">
-    </script>
 
     <link rel="icon" href="assets/images/favicon.png" type="image/png" />
     <title>COVID-19 Tracker</title>
@@ -68,27 +66,24 @@
                 <i class="fas fa-search"></i>
             </button>
         </div>
+
+        <!-- Error Modal -->
         <div class="modal" id="errorModal">
             <div class="modal-background"></div>
-            <div class="modal-content">
-                <!-- Any other Bulma elements you want -->
-                <div class="modal-card">
-                    <header class="modal-card-head">
-                        <p class="modal-card-title">Modal title</p>
-                        <button class="delete" aria-label="close"></button>
+            <div class="modal-content is-clipped">
+                <div class="modal-card is-warning">
+                    <header class="modal-card-head has-background-danger">
+                        <p class="modal-card-title">Error</p>
+                        <button class="delete" id="closeModal" aria-label="close"></button>
                     </header>
-                    <section class="modal-card-body">
-                        <!-- Content ... -->
+                    <section class="modal-card-body has-text-danger">
+                        <div>Incorrect input.</div>
+                        <p>Please enter a valid city and state</p>
                     </section>
-                    <footer class="modal-card-foot">
-                        <button class="button is-success">Save changes</button>
-                        <button class="button">Cancel</button>
-                    </footer>
                 </div>
-
             </div>
-            <button class="modal-close is-large" aria-label="close" id="closeModal"></button>
         </div>
+
     </div>
 
     <div class="tile">

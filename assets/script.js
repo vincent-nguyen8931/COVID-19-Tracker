@@ -6,7 +6,6 @@ $(document).ready(function () {
   var totalDeaths = $("<div>");
   var totalRecoveredCases = $("<div>");
 
-  
   // Closes the error modal
   $("#closeModal").click(function () {
     $("#errorModal").removeClass("is-active")
@@ -92,8 +91,6 @@ $(document).ready(function () {
 
             if (stateNameResults === state) {
 
-
-
               // pull desired covid info from ajax call and apply to variables
               provinceOrState.text("State: " + covidInfo.stats.breakdowns[i].location.provinceOrState);
               totalConfirmedCases.text("Confirmed cases: " + covidInfo.stats.breakdowns[i].totalConfirmedCases);
@@ -104,7 +101,6 @@ $(document).ready(function () {
               totalConfirmedCases.addClass("is-size-3");
               totalDeaths.addClass("is-size-3");
               totalRecoveredCases.addClass("is-size-3");
-
 
               //chart goes here// 
               var ctx = document.getElementById('myChart').getContext('2d');
@@ -129,7 +125,6 @@ $(document).ready(function () {
                       covidInfo.stats.breakdowns[i].totalRecoveredCases,
                       // total deaths data 
                       covidInfo.stats.breakdowns[i].totalDeaths],
-
                   }],
                 },
                 // Configuration options for chart
@@ -143,7 +138,6 @@ $(document).ready(function () {
         })
       })
     });
-
   })
 
   // hamburger menu toggle variables
