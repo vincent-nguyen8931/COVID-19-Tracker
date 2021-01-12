@@ -17,8 +17,8 @@
     <!-- Jquery CDN -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-        
-        <!-- jquery validator CDN -->
+
+    <!-- jquery validator CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js">
     </script>
 
@@ -61,16 +61,34 @@
         <h1 class="mr-3 mb-1">
             <strong>Search Covid Statistics</strong>
         </h1>
+        <div class="field has-addons is-rounded">
+            <input type="text" class="form-control input is-rounded" name="searchTermHTML" id="search-term"
+                placeholder="Enter City and State">
+            <button type="submit" class="button is-primary is-rounded" id="search-button">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <div class="modal" id="errorModal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <!-- Any other Bulma elements you want -->
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title">Modal title</p>
+                        <button class="delete" aria-label="close"></button>
+                    </header>
+                    <section class="modal-card-body">
+                        <!-- Content ... -->
+                    </section>
+                    <footer class="modal-card-foot">
+                        <button class="button is-success">Save changes</button>
+                        <button class="button">Cancel</button>
+                    </footer>
+                </div>
 
-        <form name="validation">
-            <div class="field has-addons is-rounded">
-                <input type="text" class="form-control input is-rounded" name="searchTermHTML" id="search-term"
-                    placeholder="Enter City and State">
-                <button type="submit" class="button is-primary is-rounded" id="search-button">
-                    <i class="fas fa-search"></i>
-                </button>
             </div>
-        </form>
+            <button class="modal-close is-large" aria-label="close" id="closeModal"></button>
+        </div>
     </div>
 
     <div class="tile">
