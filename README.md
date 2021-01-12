@@ -29,6 +29,7 @@ Enter a city or state in the Search bar and click on the Search icon. Click on t
 ```
  if (!/^[a-zA-z][A-z\s]*$/i.test(searchTerm)) { 
       $("#errorModal").addClass("is-active") 
+       $("#search-term").val(""); 
       return; 
     }
 
@@ -71,6 +72,8 @@ This code shows how we incorporated chart.js to create our own pie chart that co
         }
 ```
 This code shows how we created new HTML elements to give one tile per testing location. We createdd the individual HTML elements and added the appropriate texts and classes. And finally, we appended it to the testingSites selector.
+
+
 
 
 
