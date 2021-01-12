@@ -22,6 +22,7 @@ https://austinwoo123.github.io/COVID-19-Tracker/
 
 -----------------------
 ## How to Start
+Enter a city or state in the Search bar and click on the Search icon. Click on the stats above the pie chart to	toggle on/off the individual stats.
 
 -----------------------
 ## Code Snippets

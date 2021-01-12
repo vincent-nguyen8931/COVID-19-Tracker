@@ -13,8 +13,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<!-- Jquery CDN -->
-	<script src="https://code.jquery.com/jquery-3.5.1.js"
-		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+		crossorigin="anonymous"></script>
 
 	<link rel="icon" href="assets/images/favicon.png" type="image/png" />
 	<title>COVID-19 Tracker | Documentation</title>
@@ -59,21 +59,22 @@
 		<div class="tile is-parent is-vertical">
 			<article class="tile is-child notification is-success">
 				<p class="title">How to Use</p>
-					Enter a city or state in the Search bar and click on the Search icon. Click on the stats above the pie chart to toggle on/off the individual stats.
+				Enter a city or state in the Search bar and click on the Search icon. Click on the stats above the pie chart to
+				toggle on/off the individual stats.
 			</article>
 		</div>
 
 		<div class="tile is-parent is-vertical">
 			<article class="tile is-child notification is-success">
 				<p class="title">API's Used</p>
-				<a
-					href="https://developer.here.com/documentation/geocoding-search-api/dev_guide/topics-api/code-geocode-hybrid.html">HERE
-					Geocoding & Search API</a>
-				<p>This API allows us to take the inputted search term and </p>
+				<a href="https://developer.here.com/documentation/geocoding-search-api/dev_guide/topics-api/code-geocode-hybrid.html">
+					HERE Geocoding & Search API</a>
+				<p>This API allows us to take the inputted search term and grab the lat long and returns the state to the
+					Coronavirus Smartable API and provides uis witht he COVID testing locations</p>
 				<br>
-				<a href="https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=">Coronavirus Smartable
-					Rapid API</a>
-				<p></p>
+				<a href="https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=">
+					Coronavirus Smartable Rapid API</a>
+				<p>Gets state param from HERE API and provides us with COVID stats for that state.</p>
 			</article>
 		</div>
 
@@ -81,10 +82,8 @@
 			<article class="tile is-child notification is-success">
 				<p class="title">Libraries</p>
 				<a href="https://www.chartjs.org/">Chart JS</a>
-				<p>This library provides the capabilities to display the Covid stats from the Coronavirus Smartable API in a somple yet elegant chart.</p>
-				<br>
-				<a href="https://parsleyjs.org/">Parsley JS</a>
-				<p>Used for form validation</p>
+				<p>This library provides the capabilities to display the Covid stats from the Coronavirus Smartable API in a
+					somple yet elegant chart.</p>
 			</article>
 		</div>
 	</div>
