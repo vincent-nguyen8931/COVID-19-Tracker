@@ -1,4 +1,6 @@
 .DS_STORE
 /references
 .vscode
+node_modules/
+.env
 

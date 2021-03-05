@@ -27,7 +27,7 @@ $(document).ready(function () {
     // clears out array each split to accept new input
     var searchTermResults = searchTerm.split(" ");
 
-    var cityLoc = "https://geocode.search.hereapi.com/v1/geocode?q=" + searchTermResults[0] + "+" + searchTermResults[1] + "+US&apiKey=cm9nka7Eq7NC7YfrsKwehxVumUyYYWiARjJBuXRa484";
+    var cityLoc = "https://geocode.search.hereapi.com/v1/geocode?q=" + searchTermResults[0] + "+" + searchTermResults[1] + "+US&apiKey=process.env.citySearch";
 
     $.ajax({
       url: cityLoc,
@@ -39,7 +39,7 @@ $(document).ready(function () {
       var cityLng = cityLocation.items[0].position.lng
 
       // Url uses the variables above 
-      testingSiteURL = "https://discover.search.hereapi.com/v1/discover?apikey=cm9nka7Eq7NC7YfrsKwehxVumUyYYWiARjJBuXRa484&q=Covid&at=" + cityLat + "," + cityLng + "&limit=3"
+      testingSiteURL = "https://discover.search.hereapi.com/v1/discover?apikey=process.env.citySearch&q=Covid&at=" + cityLat + "," + cityLng + "&limit=3"
 
       //use the ajax call method to retrieve the testing sites for covid
       $.ajax({
@@ -73,7 +73,7 @@ $(document).ready(function () {
           $("#testingSites").append(topDiv);
         }
 
-        covidStats = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=8e3b8b5f5amsh15e98c7a0edaf6bp1f8a5bjsn9ed5ca6c622e";
+        covidStats = "https://coronavirus-smartable.p.rapidapi.com/stats/v1/US/?rapidapi-key=process.env.rapidApiKey";
 
         // use the ajax call method to get the covid statistics
         $.ajax({
